@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {Header} from "./loyout/header/Header.tsx";
+import {Main} from "./loyout/section/main/Main.tsx";
+import {MyContainer} from "./components/MyContainer.ts";
+import {FavoriteCoffee} from "./loyout/section/favoriteCoffee/FavoriteCoffee.tsx";
+import {About} from "./loyout/section/about/About.tsx";
+import {MobileApp} from "./loyout/section/mobileApp/MobileApp.tsx";
+import {Footer} from "./loyout/footer/Footer.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <MyContainer>
+            <Header/>
+            <Main/>
+            <FavoriteCoffee />
+            <About />
+            <MobileApp />
+            <Footer />
+        </MyContainer>
+    )
 }
 
 export default App
