@@ -22,15 +22,31 @@ const secondDataPhotos: Array<PhotoType> = [
     {src: about3, width: "660px", height: "430px"},
     {src: about4, width: "660px", height: "590px"}
 ]
+const mobileDataPhotos: Array<PhotoType> = [
+    {src: about1, width: "660px", height: "590px"},
+    {src: about4, width: "660px", height: "590px"},
+]
+
+
+
 export const About: React.FC = () => {
+
+    const [width, setWidth] = React.useState(window.innerWidth);
+    const breakpoint = 770;
+
+    React.useEffect(()=>{
+        const handleWindowResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize" , handleWindowResize);
+        return () => window.removeEventListener("resize", handleWindowResize);
+    },[])
     return (
         <StyledAbout>
-            <SectionTitle>Resource is <span>the perfect and cozy place</span> where you can enjoy a variety of hot
+            <SectionTitle id="about">Resource is <span>the perfect and cozy place</span> where you can enjoy a variety of hot
                 beverages, relax,
                 catch up with friends, or get some work done.</SectionTitle>
             <Gallery>
-                <BoxPhoto>
-                    {firstDataPhotos.map((p, index) => {
+                {width < breakpoint ? <BoxPhoto>
+                    {mobileDataPhotos.map((p, index) => {
                         return <Photo src={p.src}
                                       alt={"photo"}
                                       key={index}
@@ -38,18 +54,30 @@ export const About: React.FC = () => {
                                       width={p.width}
                                       height={p.height}/>
                     })}
+                </BoxPhoto>
+                : <>
+                        <BoxPhoto>
+                            {firstDataPhotos.map((p, index) => {
+                                return <Photo src={p.src}
+                                              alt={"photo"}
+                                              key={index}
+                                              radius={"20px"}
+                                              width={p.width}
+                                              height={p.height}/>
+                            })}
+                        </BoxPhoto>
+                        <BoxPhoto>
+                            {secondDataPhotos.map((p, index) => {
+                                return <Photo src={p.src}
+                                              alt={"photo"}
+                                              key={index}
+                                              radius={"20px"}
+                                              width={p.width}
+                                              height={p.height}/>
+                            })}
+                        </BoxPhoto>
+                    </>}
 
-                </BoxPhoto>
-                <BoxPhoto>
-                    {secondDataPhotos.map((p, index) => {
-                        return <Photo src={p.src}
-                                      alt={"photo"}
-                                      key={index}
-                                      radius={"20px"}
-                                      width={p.width}
-                                      height={p.height}/>
-                    })}
-                </BoxPhoto>
             </Gallery>
         </StyledAbout>
     );

@@ -7,7 +7,7 @@ import {FlexContainer} from "../../../components/FlexContainer.ts";
 export const FavoriteCoffee: React.FC = () => {
     return (
         <StyledFavoriteCoffee>
-            <SectionTitle align={"center"}>Choose your <span>favorite</span> coffee</SectionTitle>
+            <SectionTitle align={"center"} id="coffee">Choose your <span>favorite</span> coffee</SectionTitle>
            <FlexContainer justify={"center"}>
                <Slider/>
            </FlexContainer>

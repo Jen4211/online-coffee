@@ -30,13 +30,20 @@ export const Main: React.FC = () => {
 const StyledMain = styled.section`
   margin-top: 20px;
   max-width: 1360px;
-  min-height: 664px;
   width: 100%;
   background-image: url(${bgrImg});
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   border-radius: 40px;
   padding: 100px;
+  
+  @media ${theme.media.tablet} {
+    padding: 100px 60px;
+  }
+  @media ${theme.media.mobile} {
+    padding: 60px 16px;
+  }
 `
 const ContentWrap = styled.div`
   max-width: 530px;
@@ -57,6 +64,11 @@ const MainTitle = styled.h1`
   span {
     color: ${theme.colors.text.accent};
     font-style: italic;
+  }
+  
+  @media ${theme.media.mobile} {
+    font-size: 42px;
+    line-height: 115%
   }
 `
 

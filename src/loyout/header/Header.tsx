@@ -5,9 +5,16 @@ import {FlexContainer} from "../../components/FlexContainer.ts";
 import {Icon} from "../../components/icon/Icon.tsx";
 import {NavMenu} from "./navMenu/NavMenu.tsx";
 
+export type DataMenuItems = {
+    title: string
+    id: string
+}
 
-const dataMenuItems: Array<string> = [
-    "Favorite coffee", "About", "Mobile app", "Contact us"
+const dataMenuItems: Array<DataMenuItems> = [
+    {title:"Favorite coffee", id:"coffee"},
+    {title:"About", id:"about"},
+    {title:"Mobile app", id:"app"},
+    {title:"Contact us", id:"contact"}
 ]
 export const Header: React.FC = () => {
     return (

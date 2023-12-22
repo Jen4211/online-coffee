@@ -12,9 +12,9 @@ import {theme} from "../../../styles/Theme.ts";
 export const MobileApp: React.FC = () => {
     return (
         <StyledMobileApp>
-            <FlexContainer justify={"space-between"}>
+            <FlexContainer justify={"space-between"} wrap={"wrap"}>
                 <ContentWrap>
-                    <SectionTitle><span>Download</span> our apps to start ordering</SectionTitle>
+                    <SectionTitle id="app"><span>Download</span> our apps to start ordering</SectionTitle>
                     <Text color={theme.colors.text.dark}>Download the Resource app today and experience the comfort of
                         ordering your favorite coffee
                         from wherever you are</Text>
@@ -23,7 +23,8 @@ export const MobileApp: React.FC = () => {
                             <Icon iconId={"apple"}
                                   width={"36px"}
                                   height={"36px"}
-                                  viewBox={"0 0 36 36"}/>
+                                  viewBox={"0 0 36 36"}
+                                  fill={theme.colors.text.dark}/>
                             <TitleButtonWrap>
                                 Available on the
                                 <Text weight={"600"}>App Store</Text>
@@ -33,7 +34,8 @@ export const MobileApp: React.FC = () => {
                             <Icon iconId={"googlePlay"}
                                   width={"36px"}
                                   height={"36px"}
-                                  viewBox={"0 0 36 36"}/>
+                                  viewBox={"0 0 36 36"}
+                            fill={theme.colors.text.dark}/>
                             <TitleButtonWrap>
                                 Available on
                                 <Text weight={"600"}>Google Play</Text>
@@ -41,13 +43,13 @@ export const MobileApp: React.FC = () => {
                         </Button>
                     </ButtonWrap>
                 </ContentWrap>
-                <ImgWrap>
+<ImgWrap>
                     <Photo src={mobilImg}
                            alt={"mobile"}
                            width={"630px"}
                            height={"630px"}
                     />
-                </ImgWrap>
+</ImgWrap>
             </FlexContainer>
 
         </StyledMobileApp>
@@ -56,13 +58,26 @@ export const MobileApp: React.FC = () => {
 
 const StyledMobileApp = styled.section`
   ${FlexContainer} {
-    column-gap: 100px;
+    gap: 100px;
+    @media ${theme.media.desktop} {
+      justify-content: center;
+    }
+    @media ${theme.media.mobile} {
+      gap: 40px;
+    }
   }
 `
-const ImgWrap = styled.div`
-    
+ const ImgWrap = styled.div`
+ @media screen and (max-width: 712px) {
+   ${Photo} {
+     width: 348px;
+     height: 348px;
+   }
+ }
+ `
+ 
 
-`
+
 const ContentWrap = styled.div`
   max-width: 630px;
   width: 100%;
@@ -78,7 +93,8 @@ const ContentWrap = styled.div`
 `
 const ButtonWrap = styled.div`
   display: flex;
-  column-gap: 20px;
+  gap: 20px;
+  
 ${Button} {
   font-size: 10px;
   font-weight: 600;
@@ -86,11 +102,23 @@ ${Button} {
   display: flex;
   justify-content: start;
   column-gap: 8px;
+ &:hover{
+   svg{
+     fill: ${theme.colors.text.light};
+   }
+ }
 }
+  @media ${theme.media.mobile} {
+    flex-direction: column;
+  }
 `
 const TitleButtonWrap = styled.div`
 display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
+  
+  ${Text}{
+    color: currentColor;
+  }
 `

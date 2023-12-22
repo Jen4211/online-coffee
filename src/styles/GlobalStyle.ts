@@ -38,15 +38,21 @@ export const GlobalStyle = createGlobalStyle`
   
   p {
     font-size: 16px;
-    font-weight: 400;
-    line-height: 150%;
+    
   }
   button {
+    cursor: pointer;
     border: none;
     font-size: 16px;
     font-weight: 600;
     line-height: 150%;
+    
+    &:hover{
+      background-color:${theme.colors.background.container};
+      color: ${theme.colors.text.light};
+    }
   }
+  
   h2 {
     font-size: 60px;
     font-weight: 600;

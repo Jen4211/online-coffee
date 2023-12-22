@@ -14,5 +14,11 @@ export const theme = {
             light: "#C1B6AD",
             dark: "#665F55"
         }
-    }
+    },
+    media: {
+        mobile: "screen and (max-width: 576px)",
+        tablet: "screen and (max-width: 768px)",
+        smallDesktop: "screen and (max-width: 1440px)",
+        desktop: "screen and (max-width: 1440px)"
+    },
 }

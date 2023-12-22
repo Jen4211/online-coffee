@@ -9,20 +9,21 @@ import {Text} from "../../components/text/Text.ts";
 type ContactType = {
     id: string
     text: string
+    href?: string
 }
 
 const socialItems: Array<string> = [
     "twitter", "instagram", "facebook"
 ]
 const contactItems: Array<ContactType> = [
-    {id: "pin-alt", text: "8558 Green Rd.,  LA"},
-    {id: "phone", text: "+1 (603) 555-0123"},
+    {id: "pin-alt", text: "8558 Green Rd.,  LA", href: "#"},
+    {id: "phone", text: "+1 (603) 555-0123", href: "tel:+1 (603) 555-0123"},
     {id: "clock", text: "Mon-Sat: 9:00 AM – 23:00 PM"},
 ]
 export const Footer: React.FC = () => {
     return (
         <StyledFooter>
-            <FlexContainer>
+            <FlexContainer wrap={"wrap"}>
                 <SocialNetWorkWrap>
                     <SectionTitle color={theme.colors.text.light}>Sip, Savor,
                         Smile. <span>It’s coffee time!</span></SectionTitle>
@@ -42,19 +43,36 @@ export const Footer: React.FC = () => {
                     </SocialNetworkList>
                 </SocialNetWorkWrap>
                 <ContactWrap>
-                    <Title>Contact us</Title>
+                    <Title id="contact">Contact us
+                    <a href=""></a></Title>
                     <ContactList>
                         {contactItems.map((i, index) => {
-                            return (
-                                <ContactItem key={index}>
-                                    <Icon iconId={i.id}
-                                          width={"20px"}
-                                          height={"20px"}
-                                          viewBox={"0 0 20 20"}/>
-                                    <Text weight={"600"} color={theme.colors.text.light}>{i.text}</Text>
+                            if(i.id !== "clock"){
+                                return (
+                                    <ContactItem as={"a"} key={index} href={i.href} target="_blank">
+                                        <Icon iconId={i.id}
+                                              width={"20px"}
+                                              height={"20px"}
+                                              viewBox={"0 0 20 20"}/>
+                                        <Text weight={"600"} color={theme.colors.text.light}>{i.text}</Text>
 
-                                </ContactItem>
-                            )
+                                    </ContactItem>
+                                )
+                            }
+                            else {
+                                return (
+                                    <ContactItem  key={index}>
+                                        <Icon iconId={i.id}
+                                              width={"20px"}
+                                              height={"20px"}
+                                              viewBox={"0 0 20 20"}/>
+                                        <Text weight={"600"} color={theme.colors.text.light}>{i.text}</Text>
+
+                                    </ContactItem>
+                                )
+                            }
+
+
                         })}
                     </ContactList>
                 </ContactWrap>
@@ -69,9 +87,13 @@ const StyledFooter = styled.footer`
   padding: 100px;
   background-color: ${theme.colors.background.container};
   border-radius: 40px;
+  
+  @media ${theme.media.smallDesktop} {
+    padding: 100px 60px;
+  }
 
   ${FlexContainer} {
-    column-gap: 100px;
+    gap: 100px;
   }
 `
 
@@ -99,9 +121,9 @@ const SocialLink = styled.a`
 const ContactWrap = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: start;
-  //row-gap: 40px;
+  row-gap: 40px;
   width: 100%;
 `
 const Title = styled.h3`
@@ -112,9 +134,22 @@ const ContactList = styled.ul`
   flex-direction: column;
   align-items: start;
   row-gap: 20px;
+  
 `
 const ContactItem = styled.li`
   display: flex;
   column-gap: 8px;
+  position: relative;
+  
+  &:hover {
+    &::before{
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      background-color: ${theme.colors.background.body};
+    }
+  }
   
 `

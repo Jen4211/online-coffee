@@ -16,4 +16,8 @@ export const SectionTitle = styled.h2<SectionTitlePropsType>`
     font-style: italic;
     color: ${theme.colors.text.accent};
   }
+  
+  @media ${theme.media.mobile} {
+    font-size: 32px;
+  }
 `
