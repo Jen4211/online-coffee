@@ -71,8 +71,6 @@ export const Footer: React.FC = () => {
                                     </ContactItem>
                                 )
                             }
-
-
                         })}
                     </ContactList>
                 </ContactWrap>
@@ -124,7 +122,6 @@ const ContactWrap = styled.div`
   justify-content: center;
   align-items: start;
   row-gap: 40px;
-  width: 100%;
 `
 const Title = styled.h3`
   color: ${theme.colors.text.light};

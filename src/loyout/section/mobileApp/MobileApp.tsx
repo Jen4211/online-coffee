@@ -102,6 +102,7 @@ ${Button} {
   display: flex;
   justify-content: start;
   column-gap: 8px;
+  border-color: ${theme.colors.border.dark};
  &:hover{
    svg{
      fill: ${theme.colors.text.light};
