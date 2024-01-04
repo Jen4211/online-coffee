@@ -52,6 +52,9 @@ const ContentWrap = styled.div`
   flex-direction: column;
   justify-content: start;
   row-gap: 40px;
+  ${Button}{
+    width: 200px;
+  }
 `
 const MainTitle = styled.h1`
   font-family: "Inter", sans-serif;

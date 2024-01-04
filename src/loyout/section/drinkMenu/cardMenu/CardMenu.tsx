@@ -6,15 +6,19 @@ import {Text} from "../../../../components/text/Text.ts";
 import {DataMenuItemType} from "../DrinkMenu.tsx";
 
 
+
 type CardMenuPropsType = {
     menu: Array<DataMenuItemType>
+    changeCurrentId:(id:string , isOpen: boolean) => void
 }
 export const CardMenu: React.FC<CardMenuPropsType> = (props: CardMenuPropsType) => {
     return (
         <>
             {props.menu.map((m) => {
                 return (
-                    <CardContainer key={m.id}>
+                    <CardContainer key={m.id}
+                    onClick={() => props.changeCurrentId(m.id, true)}
+                    >
                         <Photo src={m.src}
                                height={"310px"}
                                width={"310px"}
@@ -40,6 +44,8 @@ export const CardMenu: React.FC<CardMenuPropsType> = (props: CardMenuPropsType) 
 const CardContainer = styled.div`
   max-width: 310px;
   width: 100%;
+  max-height: 506px;
+  height: 100%;
   border-radius: 40px;
   border: 1px solid ${theme.colors.border.light};
 `
@@ -49,11 +55,12 @@ const ContentContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  row-gap: 12px;
+  height: 194px;
+
 
 `
 const TextWrap = styled.div`
-    
+
 `
 
 const Title = styled.h3`

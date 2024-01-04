@@ -97,7 +97,6 @@ const ButtonWrap = styled.div`
   
 ${Button} {
   font-size: 10px;
-  font-weight: 600;
   line-height: 140%;
   display: flex;
   justify-content: start;

@@ -33,8 +33,8 @@ export const Footer: React.FC = () => {
                                 <SocialNetworkItem key={index}>
                                     <SocialLink>
                                         <Icon iconId={i}
-                                              width={"24px"}
-                                              height={"24px"}
+                                              width={"24"}
+                                              height={"24"}
                                               viewBox={"0 0 24 24"}/>
                                     </SocialLink>
                                 </SocialNetworkItem>
@@ -51,8 +51,8 @@ export const Footer: React.FC = () => {
                                 return (
                                     <ContactItem as={"a"} key={index} href={i.href} target="_blank">
                                         <Icon iconId={i.id}
-                                              width={"20px"}
-                                              height={"20px"}
+                                              width={"20"}
+                                              height={"20"}
                                               viewBox={"0 0 20 20"}/>
                                         <Text weight={"600"} color={theme.colors.text.light}>{i.text}</Text>
 
@@ -63,8 +63,8 @@ export const Footer: React.FC = () => {
                                 return (
                                     <ContactItem  key={index}>
                                         <Icon iconId={i.id}
-                                              width={"20px"}
-                                              height={"20px"}
+                                              width={"20"}
+                                              height={"20"}
                                               viewBox={"0 0 20 20"}/>
                                         <Text weight={"600"} color={theme.colors.text.light}>{i.text}</Text>
 

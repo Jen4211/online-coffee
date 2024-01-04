@@ -6,7 +6,6 @@ type ButtonPropsType = {
     padding?: string
     background?: string
     color?: string
-    width?: string
     active?: boolean
 
 }
@@ -15,7 +14,6 @@ export const Button = styled.button<ButtonPropsType>`
   background-color: ${props => props.background || "#E1D4C9"};
   border-radius: 100px;
   text-align: center;
-  //width: ${props => props.width || "200px"};
   color: ${props => props.color || "#403F3D"};
   border: 1px solid;
   

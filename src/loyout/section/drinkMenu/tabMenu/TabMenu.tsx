@@ -30,7 +30,7 @@ export const TabMenu: React.FC<TabMenuPropsType> = (props: TabMenuPropsType) => 
     );
 };
 
-const IconWrap = styled.div`
+export const IconWrap = styled.div`
 
   display: flex;
   justify-content: center;

@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
-import {Link} from "react-scroll";
-import {DataMenuItems} from "../Header.tsx";
+import { DataMenuItemsType} from "../Header.tsx";
 import {theme} from "../../../styles/Theme.ts";
+import {Link} from "react-router-dom";
+import {path} from "../../pages/Pages.tsx";
 
 type NavMenuPropsType = {
-    menuItems: Array<DataMenuItems>
+    menuItems: Array<DataMenuItemsType>
+    onToggle?: ()=> void
 }
 export const NavMenu: React.FC<NavMenuPropsType> = (props: NavMenuPropsType) => {
     return (
@@ -13,11 +15,13 @@ export const NavMenu: React.FC<NavMenuPropsType> = (props: NavMenuPropsType) => 
             {props.menuItems.map((m, index)=> {
                 return(
                     <MenuItem key={index}>
-                        <NavLink to={m.id}
-                                 smooth={true}
-                                 spy={true}
-                                 activeClass="active">
-                            {m.title}</NavLink>
+                        <Link to={path.MAIN}>
+                            <NavLink
+
+                                     onClick={props.onToggle}>
+                                {m.title}</NavLink>
+                        </Link>
+
                     </MenuItem>
                 )
             })}
@@ -36,15 +40,16 @@ display: flex;
 const MenuItem = styled.li`
 
 `
-const NavLink = styled(Link)`
+const NavLink = styled.a`
 position: relative;
+  color: ${theme.colors.text.dark};
   &:hover {
     &::before, &.active{
       content: "";
       width: 100%;
       height: 2px;
       bottom: 0;
-      background-color: ${theme.colors.background.container};
+      background-color: ${theme.colors.text.dark};
       position: absolute;
     }
   }
