@@ -1,5 +1,6 @@
-import styled from "styled-components";
+
 import {theme} from "../../styles/Theme.ts";
+import styled from "styled-components";
 
 
 type SectionTitlePropsType = {
@@ -7,7 +8,7 @@ type SectionTitlePropsType = {
     color?: string
 }
 export const SectionTitle = styled.h2<SectionTitlePropsType>`
-  
+
   color: ${props => props.color || theme.colors.text.dark};
   text-align: ${props => props.align || "start"};
   margin-bottom: 40px;
@@ -16,8 +17,10 @@ export const SectionTitle = styled.h2<SectionTitlePropsType>`
     font-style: italic;
     color: ${theme.colors.text.accent};
   }
-  
+
   @media ${theme.media.mobile} {
     font-size: 32px;
   }
 `
+
+

@@ -8,7 +8,8 @@
     border-radius: 100px;
     background-color: #C1B6AD;
 }
-.carousel__dots-item:not(.__custom).__active {
+.alice-carousel__dots-item:not(.__custom).__active,
+.alice-carousel__dots-item:not(.__custom):hover{
     background-color: #665F55;
 }
 .alice-carousel__dots-item:not(.__custom):not(:last-child) {

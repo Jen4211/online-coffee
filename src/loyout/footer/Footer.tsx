@@ -11,9 +11,16 @@ type ContactType = {
     text: string
     href?: string
 }
+type SocialItemsType = {
+    id: string
+    href: string
+}
 
-const socialItems: Array<string> = [
-    "twitter", "instagram", "facebook"
+const socialItems: Array<SocialItemsType> = [
+    {id:"twitter", href:"https://twitter.com/"},
+    {id:"instagram", href:"https://www.instagram.com/"},
+    {id:"facebook", href:"https://www.facebook.com/"},
+
 ]
 const contactItems: Array<ContactType> = [
     {id: "pin-alt", text: "8558 Green Rd.,  LA", href: "#"},
@@ -21,6 +28,7 @@ const contactItems: Array<ContactType> = [
     {id: "clock", text: "Mon-Sat: 9:00 AM – 23:00 PM"},
 ]
 export const Footer: React.FC = () => {
+    console.log("footer")
     return (
         <StyledFooter>
             <FlexContainer wrap={"wrap"}>
@@ -31,8 +39,8 @@ export const Footer: React.FC = () => {
                         {socialItems.map((i, index) => {
                             return (
                                 <SocialNetworkItem key={index}>
-                                    <SocialLink>
-                                        <Icon iconId={i}
+                                    <SocialLink href={i.href} target={"_blank"}>
+                                        <Icon iconId={i.id}
                                               width={"24"}
                                               height={"24"}
                                               viewBox={"0 0 24 24"}/>

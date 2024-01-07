@@ -4,6 +4,8 @@ import bgrImg from "../../../assets/backgroundImg/img-hero.webp";
 import {theme} from "../../../styles/Theme.ts";
 import {Button} from "../../../components/button/Button.ts";
 import {Text} from "../../../components/text/Text.ts";
+import {Link} from "react-router-dom";
+import {path} from "../../pages/Pages.tsx";
 
 export const Main: React.FC = () => {
     return (
@@ -17,9 +19,14 @@ export const Main: React.FC = () => {
                     destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite
                     beverage.
                 </Text>
-                <Button background={`${theme.colors.background.body}`}
-                color={`${theme.colors.text.dark}`}
-                padding={"20px 78px"}>Menu</Button>
+                <Link to={path.MENU}>
+                    <Button
+                        background={`${theme.colors.background.body}`}
+                        color={`${theme.colors.text.dark}`}
+                        padding={"20px 78px"}>
+                        Menu</Button>
+                </Link>
+
             </ContentWrap>
         </StyledMain>
 
@@ -54,6 +61,7 @@ const ContentWrap = styled.div`
   row-gap: 40px;
   ${Button}{
     width: 200px;
+    border: none;
   }
 `
 const MainTitle = styled.h1`

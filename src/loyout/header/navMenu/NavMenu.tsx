@@ -15,12 +15,10 @@ export const NavMenu: React.FC<NavMenuPropsType> = (props: NavMenuPropsType) => 
             {props.menuItems.map((m, index)=> {
                 return(
                     <MenuItem key={index}>
-                        <Link to={path.MAIN}>
-                            <NavLink
-
-                                     onClick={props.onToggle}>
-                                {m.title}</NavLink>
-                        </Link>
+                        <NavLink to={path.MAIN}
+                                 onClick={props.onToggle}>
+                                {m.title}
+                        </NavLink>
 
                     </MenuItem>
                 )
@@ -40,7 +38,7 @@ display: flex;
 const MenuItem = styled.li`
 
 `
-const NavLink = styled.a`
+const NavLink = styled(Link)`
 position: relative;
   color: ${theme.colors.text.dark};
   &:hover {

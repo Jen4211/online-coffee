@@ -4,7 +4,7 @@ import {NavMenu} from "../navMenu/NavMenu.tsx";
 import {FlexContainer} from "../../../components/FlexContainer.ts";
 import styled from "styled-components";
 import {DataMenuItemsType} from "../Header.tsx";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {path} from "../../pages/Pages.tsx";
 import {theme} from "../../../styles/Theme.ts";
 import {Logo} from "../../../components/logo/Logo.tsx";
@@ -30,11 +30,10 @@ export const DesktopMenu: React.FC<DesktopMenuPropsType> = (props:DesktopMenuPro
 };
 
 
-export const HeaderLink = styled(NavLink)`
+export const HeaderLink = styled(Link)`
   color: ${theme.colors.text.dark};
 display: flex;
   align-items: center;
   column-gap: 8px;
  
-  }
 `

@@ -41,6 +41,7 @@ export const Slider: React.FC = () => {
     return (
         <StyledSlider>
             <AliceCarousel
+                infinite
                 mouseTracking
                 items={items}
                 renderPrevButton={() =>{
