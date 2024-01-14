@@ -4,6 +4,7 @@ import {Photo} from "../../../../components/photo/Photo.ts";
 import {theme} from "../../../../styles/Theme.ts";
 import {Text} from "../../../../components/text/Text.ts";
 import {DataMenuItemType} from "../DrinkMenu.tsx";
+import {AnimatePresence, motion} from "framer-motion";
 
 
 
@@ -14,27 +15,38 @@ type CardMenuPropsType = {
 export const CardMenu: React.FC<CardMenuPropsType> = (props: CardMenuPropsType) => {
     return (
         <>
-            {props.menu.map((m) => {
-                return (
-                    <CardContainer key={m.id}
-                    onClick={() => props.changeCurrentId(m.id, true)}
-                    >
-                        <Photo src={m.src}
-                               height={"310px"}
-                               width={"310px"}
-                               key={m.id}
-                               alt={m.type}
-                               radius={"40px"}/>
-                        <ContentContainer>
-                            <TextWrap>
-                                <Title>{m.title}</Title>
-                                <Text>{m.description}</Text>
-                            </TextWrap>
-                            <Price>{m.price}</Price>
-                        </ContentContainer>
-                    </CardContainer>
-                )
-            })}
+            <AnimatePresence>
+                {props.menu.map((m) => {
+                    return (
+                        <motion.div
+                            layout
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            exit={{opacity: 0}}
+                        key={m.id}>
+                            <CardContainer key={m.id}
+                                           onClick={() => props.changeCurrentId(m.id, true)}
+                            >
+                                <Photo src={m.src}
+                                       height={"310px"}
+                                       width={"310px"}
+                                       key={m.id}
+                                       alt={m.type}
+                                       radius={"40px"}/>
+                                <ContentContainer>
+                                    <TextWrap>
+                                        <Title>{m.title}</Title>
+                                        <Text>{m.description}</Text>
+                                    </TextWrap>
+                                    <Price>{m.price}</Price>
+                                </ContentContainer>
+                            </CardContainer>
+                        </motion.div>
+
+                    )
+                })}
+
+            </AnimatePresence>
 
         </>
 

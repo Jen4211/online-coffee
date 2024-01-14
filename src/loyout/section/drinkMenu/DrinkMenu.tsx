@@ -245,13 +245,15 @@ export const DrinkMenu: React.FC = () => {
 
     const changeFilterStatus = (value: StatusTabMenuType) => {
         setCurrentFilterStatus(value);
+        setCurrenPage(1);
     }
     const onToggle = (isOpen: boolean) => setIsOpen(isOpen)
 
     const filterId = filterMenu.filter((menu) => menu.id === currentId);
     const changeCurrentId = (id: string, isOpen: boolean) => {
         setCurrentId(id);
-        onToggle(isOpen)
+        onToggle(isOpen);
+
     }
 
 

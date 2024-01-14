@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { DataMenuItemsType} from "../Header.tsx";
 import {theme} from "../../../styles/Theme.ts";
 import {Link} from "react-router-dom";
-import {path} from "../../pages/Pages.tsx";
+import {ScrollToAnchor} from "../../../components/scrollToAnchor/ScrollToAnchor.tsx";
+
 
 type NavMenuPropsType = {
     menuItems: Array<DataMenuItemsType>
@@ -11,11 +12,13 @@ type NavMenuPropsType = {
 }
 export const NavMenu: React.FC<NavMenuPropsType> = (props: NavMenuPropsType) => {
     return (
+
         <MenuList>
+            <ScrollToAnchor/>
             {props.menuItems.map((m, index)=> {
                 return(
                     <MenuItem key={index}>
-                        <NavLink to={path.MAIN}
+                        <NavLink to={m.id}
                                  onClick={props.onToggle}>
                                 {m.title}
                         </NavLink>

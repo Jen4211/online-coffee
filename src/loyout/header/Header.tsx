@@ -9,10 +9,10 @@ export type DataMenuItemsType = {
 }
 
 const dataMenuItems: Array<DataMenuItemsType> = [
-    {title: "Favorite coffee", id: "coffee"},
-    {title: "About", id: "about"},
-    {title: "Mobile app", id: "app"},
-    {title: "Contact us", id: "contact"}
+    {title: "Favorite coffee", id: "/main#coffee"},
+    {title: "About", id: "/main#about"},
+    {title: "Mobile app", id: "/main#app"},
+    {title: "Contact us", id: "/main#contact"}
 ]
 export const Header: React.FC = () => {
     const [width, setWidth] = React.useState(window.innerWidth);

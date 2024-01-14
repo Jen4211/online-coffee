@@ -1,14 +1,12 @@
 import React, {useState} from 'react';
 import {DataMenuItemsType} from "../Header.tsx";
 import {FlexContainer} from "../../../components/FlexContainer.ts";
-import {Icon} from "../../../components/icon/Icon.tsx";
 import {Button} from "../../../components/button/Button.ts";
 import styled, {css} from "styled-components";
 import {NavMenu} from "../navMenu/NavMenu.tsx";
 import {theme} from "../../../styles/Theme.ts";
-import {HeaderLink} from "../desktopMenu/DesktopMenu.tsx";
-import {path} from "../../pages/Pages.tsx";
 import {Logo} from "../../../components/logo/Logo.tsx";
+import {HeaderLinkDrinkMenu} from "../../../components/linkMenuDrinks/HeaderLinkDrinkMenu.tsx";
 
 type MobileMenuPropsType = {
     dataMenuItems: Array<DataMenuItemsType>
@@ -34,15 +32,8 @@ export const MobileMenu: React.FC<MobileMenuPropsType> = (props: MobileMenuProps
                             <span></span>
                         </Button>
                     </HeaderPopup>
-
                     <NavMenu menuItems={props.dataMenuItems} onToggle={onToggle}/>
-                    <HeaderLink to={path.MENU} onClick={onToggle}>
-                        Menu
-                        <Icon iconId={"coffee-cup"}
-                              width={"20px"}
-                              height={"20px"}
-                              viewBox={"0 0 20 20"}/>
-                    </HeaderLink>
+                    <HeaderLinkDrinkMenu />
                 </MobileMenuPopup>
             </FlexContainer>
         </StyledMobileMenu>
@@ -62,7 +53,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translateY(-100%);
+  transform: translateY(-1000px);
   transition: 1s ease-in-out;
 
   z-index: 100;
@@ -70,15 +61,17 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   ul{
     flex-direction: column;
     row-gap: 60px;
-  }
-  
-  ${HeaderLink} {
-    margin-top: 100px;
+    margin-bottom: 100px;
   }
 
+  
   ${props => props.isOpen && css<{ isOpen: boolean }>`
     transform: translateY(0);
   `}
+  
+  @media ${theme.media.mobile} {
+  padding: 20px 16px 60px;
+}
 `
 
 const StyledMobileMenu = styled.div`

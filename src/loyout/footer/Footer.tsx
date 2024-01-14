@@ -28,12 +28,11 @@ const contactItems: Array<ContactType> = [
     {id: "clock", text: "Mon-Sat: 9:00 AM – 23:00 PM"},
 ]
 export const Footer: React.FC = () => {
-    console.log("footer")
     return (
         <StyledFooter>
             <FlexContainer wrap={"wrap"}>
                 <SocialNetWorkWrap>
-                    <SectionTitle color={theme.colors.text.light}>Sip, Savor,
+                    <SectionTitle id={"contact"} color={theme.colors.text.light}>Sip, Savor,
                         Smile. <span>It’s coffee time!</span></SectionTitle>
                     <SocialNetworkList>
                         {socialItems.map((i, index) => {
@@ -113,7 +112,12 @@ const SocialNetworkList = styled.ul`
   column-gap: 12px;
 `
 const SocialNetworkItem = styled.li`
-
+  transition: 0.4s ease-in-out;
+  transform: translateY(0);
+&:hover{
+  transition: 0.4s ease-in-out;
+  transform: translateY(-10px);
+}
 `
 const SocialLink = styled.a`
   display: flex;

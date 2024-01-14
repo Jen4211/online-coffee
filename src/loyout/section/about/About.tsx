@@ -47,33 +47,39 @@ export const About: React.FC = () => {
             <Gallery>
                 {width < breakpoint ? <BoxPhoto>
                     {mobileDataPhotos.map((p, index) => {
-                        return <Photo src={p.src}
-                                      alt={"photo"}
-                                      key={index}
-                                      radius={"20px"}
-                                      width={p.width}
-                                      height={p.height}/>
+                        return <PhotoContainer key={index}>
+                            <Photo src={p.src}
+                                   alt={"photo"}
+                                   key={index}
+                                   radius={"20px"}
+                                   width={p.width}
+                                   height={p.height}/>
+                        </PhotoContainer>
                     })}
                 </BoxPhoto>
                 : <>
                         <BoxPhoto>
                             {firstDataPhotos.map((p, index) => {
-                                return <Photo src={p.src}
-                                              alt={"photo"}
-                                              key={index}
-                                              radius={"20px"}
-                                              width={p.width}
-                                              height={p.height}/>
+                                return <PhotoContainer key={index}>
+                                    <Photo src={p.src}
+                                           alt={"photo"}
+                                           key={index}
+                                           radius={"20px"}
+                                           width={p.width}
+                                           height={p.height}/>
+                                </PhotoContainer>
                             })}
                         </BoxPhoto>
                         <BoxPhoto>
                             {secondDataPhotos.map((p, index) => {
-                                return <Photo src={p.src}
-                                              alt={"photo"}
-                                              key={index}
-                                              radius={"20px"}
-                                              width={p.width}
-                                              height={p.height}/>
+                                return <PhotoContainer key={index}>
+                                    <Photo src={p.src}
+                                           alt={"photo"}
+                                           key={index}
+                                           radius={"20px"}
+                                           width={p.width}
+                                           height={p.height}/>
+                                </PhotoContainer>
                             })}
                         </BoxPhoto>
                     </>}
@@ -97,11 +103,16 @@ const BoxPhoto = styled.div`
   flex-direction: column;
   row-gap: 40px;
   width: 100%;
+  
   ${Photo} {
     transition: linear 0.4s;
     &:hover{
      
-      transform: scale(0.9);
+      transform: scale(1.1);
     }
   }
+`
+const PhotoContainer = styled.div`
+overflow: hidden;
+  border-radius: 20px;
 `
