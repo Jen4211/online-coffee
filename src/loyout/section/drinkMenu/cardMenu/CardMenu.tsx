@@ -1,16 +1,14 @@
 import React from 'react';
-import styled from "styled-components";
 import {Photo} from "../../../../components/photo/Photo.ts";
-import {theme} from "../../../../styles/Theme.ts";
 import {Text} from "../../../../components/text/Text.ts";
 import {DataMenuItemType} from "../DrinkMenu.tsx";
 import {AnimatePresence, motion} from "framer-motion";
-
+import {S} from "../StyledDrinkMenu.ts";
 
 
 type CardMenuPropsType = {
     menu: Array<DataMenuItemType>
-    changeCurrentId:(id:string , isOpen: boolean) => void
+    changeCurrentId: (id: string, isOpen: boolean) => void
 }
 export const CardMenu: React.FC<CardMenuPropsType> = (props: CardMenuPropsType) => {
     return (
@@ -23,9 +21,9 @@ export const CardMenu: React.FC<CardMenuPropsType> = (props: CardMenuPropsType) 
                             initial={{opacity: 0}}
                             animate={{opacity: 1}}
                             exit={{opacity: 0}}
-                        key={m.id}>
-                            <CardContainer key={m.id}
-                                           onClick={() => props.changeCurrentId(m.id, true)}
+                            key={m.id}>
+                            <S.CardContainer key={m.id}
+                                             onClick={() => props.changeCurrentId(m.id, true)}
                             >
                                 <Photo src={m.src}
                                        height={"310px"}
@@ -33,51 +31,19 @@ export const CardMenu: React.FC<CardMenuPropsType> = (props: CardMenuPropsType) 
                                        key={m.id}
                                        alt={m.type}
                                        radius={"40px"}/>
-                                <ContentContainer>
-                                    <TextWrap>
-                                        <Title>{m.title}</Title>
+                                <S.ContentContainer>
+                                    <S.TextWrap>
+                                        <S.Title>{m.title}</S.Title>
                                         <Text>{m.description}</Text>
-                                    </TextWrap>
-                                    <Price>{m.price}</Price>
-                                </ContentContainer>
-                            </CardContainer>
+                                    </S.TextWrap>
+                                    <S.Price>{m.price}</S.Price>
+                                </S.ContentContainer>
+                            </S.CardContainer>
                         </motion.div>
-
                     )
                 })}
-
             </AnimatePresence>
-
         </>
-
     );
 };
 
-const CardContainer = styled.div`
-  max-width: 310px;
-  width: 100%;
-  max-height: 506px;
-  height: 100%;
-  border-radius: 40px;
-  border: 1px solid ${theme.colors.border.light};
-`
-const ContentContainer = styled.div`
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
-  height: 194px;
-
-
-`
-const TextWrap = styled.div`
-
-`
-
-const Title = styled.h3`
-  margin-bottom: 12px;
-`
-const Price = styled.h3`
-
-`

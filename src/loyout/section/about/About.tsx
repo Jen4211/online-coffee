@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from "styled-components";
 import {SectionTitle} from "../../../components/sectionTitle/SectionTitle.ts";
 import {Photo} from "../../../components/photo/Photo.ts";
+import {S} from "./StyledAbout.ts";
 import about1 from "../../../assets/homePageImg/about-1.webp";
 import about2 from "../../../assets/homePageImg/about-2.webp";
 import about3 from "../../../assets/homePageImg/about-3.webp";
@@ -40,79 +40,53 @@ export const About: React.FC = () => {
         return () => window.removeEventListener("resize", handleWindowResize);
     },[])
     return (
-        <StyledAbout>
+        <S.About>
             <SectionTitle id="about">Resource is <span>the perfect and cozy place</span> where you can enjoy a variety of hot
                 beverages, relax,
                 catch up with friends, or get some work done.</SectionTitle>
-            <Gallery>
-                {width < breakpoint ? <BoxPhoto>
+            <S.Gallery>
+                {width < breakpoint ? <S.BoxPhoto>
                     {mobileDataPhotos.map((p, index) => {
-                        return <PhotoContainer key={index}>
+                        return <S.PhotoContainer key={index}>
                             <Photo src={p.src}
                                    alt={"photo"}
                                    key={index}
                                    radius={"20px"}
                                    width={p.width}
                                    height={p.height}/>
-                        </PhotoContainer>
+                        </S.PhotoContainer>
                     })}
-                </BoxPhoto>
+                </S.BoxPhoto>
                 : <>
-                        <BoxPhoto>
+                        <S.BoxPhoto>
                             {firstDataPhotos.map((p, index) => {
-                                return <PhotoContainer key={index}>
+                                return <S.PhotoContainer key={index}>
                                     <Photo src={p.src}
                                            alt={"photo"}
                                            key={index}
                                            radius={"20px"}
                                            width={p.width}
                                            height={p.height}/>
-                                </PhotoContainer>
+                                </S.PhotoContainer>
                             })}
-                        </BoxPhoto>
-                        <BoxPhoto>
+                        </S.BoxPhoto>
+                        <S.BoxPhoto>
                             {secondDataPhotos.map((p, index) => {
-                                return <PhotoContainer key={index}>
+                                return <S.PhotoContainer key={index}>
                                     <Photo src={p.src}
                                            alt={"photo"}
                                            key={index}
                                            radius={"20px"}
                                            width={p.width}
                                            height={p.height}/>
-                                </PhotoContainer>
+                                </S.PhotoContainer>
                             })}
-                        </BoxPhoto>
+                        </S.BoxPhoto>
                     </>}
 
-            </Gallery>
-        </StyledAbout>
+            </S.Gallery>
+        </S.About>
     );
 };
 
 
-const StyledAbout = styled.section`
-
-`
-const Gallery = styled.div`
-  display: flex;
-  column-gap: 40px;
-  
-`
-const BoxPhoto = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 40px;
-  width: 100%;
-  
-  ${Photo} {
-    transition: linear 0.4s;
-    &:hover{
-     
-      transform: scale(1.1);
-    }
-  }
-`
-const PhotoContainer = styled.div`
-overflow: hidden;
-  border-radius: 20px;
-`
