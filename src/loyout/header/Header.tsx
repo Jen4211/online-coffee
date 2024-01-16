@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import {S} from "./StyledHeder.ts"
 import {DesktopMenu} from "./desktopMenu/DesktopMenu.tsx";
 import {MobileMenu} from "./mobileMenu/MobileMenu.tsx";
 
@@ -24,14 +24,11 @@ export const Header: React.FC = () => {
         return () => window.removeEventListener("resize", handleWindowResize)
     }, [])
         return (
-        <StyledHeader>
+        <S.Header>
             {width > breakpoint ? <DesktopMenu dataMenuItems={dataMenuItems}/>
                                 : <MobileMenu dataMenuItems={dataMenuItems}/>}
-        </StyledHeader>
+        </S.Header>
     );
 };
 
 
-const StyledHeader = styled.header`
-  margin-bottom: 20px;
-`

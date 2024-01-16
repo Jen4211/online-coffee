@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import styled from "styled-components";
+import {S} from "./StyledDrinkMenu.ts";
 import {SectionTitle} from "../../../components/sectionTitle/SectionTitle.ts";
 import {TabMenu} from "./tabMenu/TabMenu.tsx";
 import coffee1 from "../../../assets/coffeeMenuImg/coffee-1.webp";
@@ -25,7 +25,6 @@ import dessert8 from "../../../assets/dessertMenuImg/dessert-8.webp";
 import {FlexContainer} from "../../../components/FlexContainer.ts";
 import {CardMenu} from "./cardMenu/CardMenu.tsx";
 import {Icon} from "../../../components/icon/Icon.tsx";
-import {theme} from "../../../styles/Theme.ts";
 import {ModalCard} from "../../../components/modalCard/ModalCard.tsx";
 
 
@@ -51,7 +50,7 @@ const tabMenuItems: Array<TabMenuItemType> = [
     {icon: "🍰", text: "Dessert", status: "dessert"},
 ]
 
- const dataMenu: Array<DataMenuItemType> = [
+const dataMenu: Array<DataMenuItemType> = [
     {
         src: coffee1,
         title: "Irish coffee",
@@ -213,10 +212,7 @@ const tabMenuItems: Array<TabMenuItemType> = [
         id: "20"
     },
 ]
-// const optionForMenu = [
-//     {type:"dessert",
-//     sizeS:}
-// ]
+
 
 export const DrinkMenu: React.FC = () => {
 
@@ -236,12 +232,12 @@ export const DrinkMenu: React.FC = () => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const filterMenu = useMemo(()=> {
-     const filterArray=  dataMenu.filter((menu) => menu.type === currentFilterStatus)
+    const filterMenu = useMemo(() => {
+        const filterArray = dataMenu.filter((menu) => menu.type === currentFilterStatus)
         return width > breakpoint
             ? filterArray
             : filterArray.slice(0, 4 * currentPage)
-    },[currentFilterStatus, currentPage, width]);
+    }, [currentFilterStatus, currentPage, width]);
 
     const changeFilterStatus = (value: StatusTabMenuType) => {
         setCurrentFilterStatus(value);
@@ -258,81 +254,31 @@ export const DrinkMenu: React.FC = () => {
 
 
     return (
-        <StyledDrinkMenu>
+        <S.DrinkMenu>
             <SectionTitle>Behind each of our cups hides an <span>amazing surprise</span></SectionTitle>
             <TabMenu tabMenu={tabMenuItems}
                      changeFilterStatus={changeFilterStatus}
                      currentFilterStatus={currentFilterStatus}/>
             <FlexContainer wrap={"wrap"} justify={"center"}>
                 <CardMenu menu={filterMenu} changeCurrentId={changeCurrentId}/>
-                <RefreshWrap>
-                    <Refresh as={"button"}
-                    onClick={()=>setCurrenPage(prevState => prevState + 1)}>
+                <S.RefreshWrap>
+                    <S.Refresh as={"button"}
+                               onClick={() => setCurrenPage(prevState => prevState + 1)}>
                         <Icon iconId={"refresh"}
                               height={"24"}
                               width={"24"}
                               viewBox={"0 0 24 24"}
                         />
-                    </Refresh>
-                </RefreshWrap>
+                    </S.Refresh>
+                </S.RefreshWrap>
 
             </FlexContainer>
             <ModalCard menu={filterId}
                        onToggle={onToggle}
                        isOpen={isOpen}/>
-        </StyledDrinkMenu>
+        </S.DrinkMenu>
     );
 };
 
-const Refresh = styled.div`
-  width: 60px;
-  height: 60px;
-  border-radius: 100px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  border: 1px solid ${theme.colors.border.dark};
 
-  svg {
-    stroke: ${theme.colors.text.dark};
-  }
-
-  &:hover {
-    svg {
-      stroke: ${theme.colors.text.light};
-    }
-  }
-`
-const RefreshWrap = styled.div`
-  width: 100%;
-  display: none;
-  justify-content: center;
-
-`
-
-const StyledDrinkMenu = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  ${SectionTitle} {
-    max-width: 800px;
-    text-align: center;
-  }
-
-  ${FlexContainer} {
-    gap: 40px;
-  }
-
-  @media ${theme.media.mobile} {
-    ${Refresh} {
-      display: flex;
-    }
-
-    ${RefreshWrap} {
-      display: flex;
-    }
-  }
-`
 
