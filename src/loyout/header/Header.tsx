@@ -23,10 +23,10 @@ export const Header: React.FC = () => {
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize)
     }, [])
-    return (
+        return (
         <S.Header>
             {width > breakpoint ? <DesktopMenu dataMenuItems={dataMenuItems}/>
-                : <MobileMenu dataMenuItems={dataMenuItems}/>}
+                                : <MobileMenu dataMenuItems={dataMenuItems}/>}
         </S.Header>
     );
 };

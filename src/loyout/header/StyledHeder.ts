@@ -22,16 +22,18 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
 
   z-index: 100;
 
-  ul {
+  ul{
     flex-direction: column;
     row-gap: 60px;
     margin-bottom: 100px;
   }
 
-
+  
   ${props => props.isOpen && css<{ isOpen: boolean }>`
     transform: translateY(0);
-  `} @media ${theme.media.mobile} {
+  `}
+  
+  @media ${theme.media.mobile} {
   padding: 20px 16px 60px;
 }
 `
@@ -64,13 +66,13 @@ const HeaderPopup = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 60px;
-
-  ${Button} {
-    span {
+  
+  ${Button}{
+    span{
       transform: rotate(45deg);
       position: relative;
-
-      &::before {
+      
+      &::before{
         content: "";
         display: inline-block;
         position: absolute;
@@ -80,28 +82,27 @@ const HeaderPopup = styled.div`
         transform: rotate(90deg);
         right: 8px;
         left: 0;
-
+        
       }
     }
-
-  }
+    
+  } 
 `
 const MenuList = styled.ul`
-  display: flex;
+display: flex;
   column-gap: 40px;
   align-items: center;
-
+  
 
 `
 const MenuItem = styled.li`
 
 `
 const Link = styled(NavLink)`
-  position: relative;
+position: relative;
   color: ${theme.colors.text.dark};
-
   &:hover, &.active {
-    &::before {
+    &::before{
       content: "";
       width: 100%;
       height: 2px;
