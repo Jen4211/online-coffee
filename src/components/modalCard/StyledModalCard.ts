@@ -38,8 +38,7 @@ const ModalCard = styled.div<{ isOpen: boolean }>`
   ${props => props.isOpen && css<{ isOpen: boolean }>`
     top: 50%;
     transition: 1s ease-in-out;
-  `} 
-  @media ${theme.media.mobile} {
+  `} @media ${theme.media.mobile} {
   ${Photo} {
     display: none;
   }

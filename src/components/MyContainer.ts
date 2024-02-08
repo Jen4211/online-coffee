@@ -7,7 +7,7 @@ export const MyContainer = styled.div`
   padding: 20px 40px 40px;
   min-height: 100%;
   margin: 0 auto;
-  
+
   @media ${theme.media.mobile} {
     padding: 20px 16px 40px;
   }

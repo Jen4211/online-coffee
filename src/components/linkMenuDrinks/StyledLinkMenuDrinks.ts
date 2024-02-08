@@ -11,9 +11,9 @@ const WrapLinkDrinkMenu = styled.div`
   display: flex;
   column-gap: 8px;
   position: relative;
-  
-  &:hover{
-    &::before{
+
+  &:hover {
+    &::before {
       content: "";
       position: absolute;
       left: 0;
@@ -21,7 +21,7 @@ const WrapLinkDrinkMenu = styled.div`
       bottom: 1px;
       background-color: ${theme.colors.text.dark};
       height: 2px;
-    }  
+    }
   }
 `
 export const S = {

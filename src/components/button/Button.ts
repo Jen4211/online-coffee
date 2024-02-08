@@ -16,7 +16,7 @@ export const Button = styled.button<ButtonPropsType>`
   text-align: center;
   color: ${props => props.color || "#403F3D"};
   border: 1px solid;
-  
+
   ${props => props.active && css<ButtonPropsType>`
     background-color: ${theme.colors.background.container};
     color: ${theme.colors.text.light};

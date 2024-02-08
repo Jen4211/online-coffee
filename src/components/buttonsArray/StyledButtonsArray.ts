@@ -12,7 +12,7 @@ const ButtonContainer = styled.div`
   justify-content: start;
   flex-wrap: wrap;
   gap: 8px;
-  
+
 
   ${Button} {
     width: auto;
@@ -22,9 +22,10 @@ const ButtonContainer = styled.div`
     column-gap: 8px;
     border-color: ${theme.colors.border.light};
 
-  ${IconWrap} {
-  color: ${theme.colors.text.dark}
-  }
+    ${IconWrap} {
+      color: ${theme.colors.text.dark}
+    }
+
     &:hover {
       ${IconWrap} {
         background-color: ${theme.colors.background.body};
