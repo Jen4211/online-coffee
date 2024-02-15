@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import {FlexContainer} from "../../../components/FlexContainer.ts";
-import {theme} from "../../../styles/Theme.ts";
-import {Photo} from "../../../components/photo/Photo.ts";
-import {SectionTitle} from "../../../components/sectionTitle/SectionTitle.ts";
-import {Button} from "../../../components/button/Button.ts";
-import {Text} from "../../../components/text/Text.ts";
+import styled from 'styled-components';
+import { FlexContainer } from '../../../components/FlexContainer.ts';
+import { theme } from '../../../styles/Theme.ts';
+import { Photo } from '../../../components/photo/Photo.ts';
+import { SectionTitle } from '../../../components/sectionTitle/SectionTitle.ts';
+import { Button } from '../../../components/button/Button.ts';
+import { Text } from '../../../components/text/Text.ts';
 
 const MobileApp = styled.section`
   ${FlexContainer} {
@@ -16,7 +16,7 @@ const MobileApp = styled.section`
       gap: 40px;
     }
   }
-`
+`;
 const ImgWrap = styled.div`
   @media screen and (max-width: 712px) {
     ${Photo} {
@@ -24,8 +24,7 @@ const ImgWrap = styled.div`
       height: 348px;
     }
   }
-`
-
+`;
 
 const ContentWrap = styled.div`
   max-width: 630px;
@@ -39,7 +38,7 @@ const ContentWrap = styled.div`
   ${SectionTitle} {
     margin-bottom: 0;
   }
-`
+`;
 const ButtonWrap = styled.div`
   display: flex;
   gap: 20px;
@@ -62,7 +61,7 @@ const ButtonWrap = styled.div`
   @media ${theme.media.mobile} {
     flex-direction: column;
   }
-`
+`;
 const TitleButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -72,12 +71,12 @@ const TitleButtonWrap = styled.div`
   ${Text} {
     color: currentColor;
   }
-`
+`;
 
 export const S = {
-    MobileApp,
-    ImgWrap,
-    ContentWrap,
-    ButtonWrap,
-    TitleButtonWrap
-}
+  MobileApp,
+  ImgWrap,
+  ContentWrap,
+  ButtonWrap,
+  TitleButtonWrap,
+};

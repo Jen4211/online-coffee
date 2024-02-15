@@ -1,8 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const FavoriteCoffee = styled.section`
-
-`
- export const S = {
-     FavoriteCoffee
- }
+const FavoriteCoffee = styled.section``;
+export const S = {
+  FavoriteCoffee,
+};

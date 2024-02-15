@@ -1,11 +1,11 @@
-import styled, {css} from "styled-components";
-import {theme} from "../../styles/Theme.ts";
-import {Button} from "../../components/button/Button.ts";
-import {NavLink} from "react-router-dom";
+import styled, { css } from 'styled-components';
+import { theme } from '../../styles/Theme.ts';
+import { Button } from '../../components/button/Button.ts';
+import { NavLink } from 'react-router-dom';
 
 const Header = styled.header`
   margin-bottom: 20px;
-`
+`;
 const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   position: fixed;
   left: 0;
@@ -28,13 +28,16 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
     margin-bottom: 100px;
   }
 
+  ${(props) =>
+    props.isOpen &&
+    css<{ isOpen: boolean }>`
+      transform: translateY(0);
+    `}
 
-  ${props => props.isOpen && css<{ isOpen: boolean }>`
-    transform: translateY(0);
-  `} @media ${theme.media.mobile} {
-  padding: 20px 16px 60px;
-}
-`
+  @media ${theme.media.mobile} {
+    padding: 20px 16px 60px;
+  }
+`;
 
 const MobileMenu = styled.div`
   width: 100%;
@@ -56,8 +59,7 @@ const MobileMenu = styled.div`
       background-color: ${theme.colors.text.dark};
     }
   }
-
-`
+`;
 const HeaderPopup = styled.div`
   width: 100%;
   display: flex;
@@ -71,7 +73,7 @@ const HeaderPopup = styled.div`
       position: relative;
 
       &::before {
-        content: "";
+        content: '';
         display: inline-block;
         position: absolute;
         width: 16px;
@@ -80,29 +82,23 @@ const HeaderPopup = styled.div`
         transform: rotate(90deg);
         right: 8px;
         left: 0;
-
       }
     }
-
   }
-`
+`;
 const MenuList = styled.ul`
   display: flex;
   column-gap: 40px;
   align-items: center;
-
-
-`
-const MenuItem = styled.li`
-
-`
+`;
+const MenuItem = styled.li``;
 const Link = styled(NavLink)`
   position: relative;
   color: ${theme.colors.text.dark};
-
-  &:hover, &.active {
+  &:hover,
+  &.active {
     &::before {
-      content: "";
+      content: '';
       width: 100%;
       height: 2px;
       bottom: 0;
@@ -110,13 +106,13 @@ const Link = styled(NavLink)`
       position: absolute;
     }
   }
-`
+`;
 export const S = {
-    Header,
-    HeaderPopup,
-    MobileMenu,
-    MobileMenuPopup,
-    MenuList,
-    MenuItem,
-    Link
-}
+  Header,
+  HeaderPopup,
+  MobileMenu,
+  MobileMenuPopup,
+  MenuList,
+  MenuItem,
+  Link,
+};
