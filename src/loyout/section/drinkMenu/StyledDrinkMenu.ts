@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import {theme} from "../../../styles/Theme.ts";
-import {SectionTitle} from "../../../components/sectionTitle/SectionTitle.ts";
-import {FlexContainer} from "../../../components/FlexContainer.ts";
-import {Button} from "../../../components/button/Button.ts";
+import styled from 'styled-components';
+import { theme } from '../../../styles/Theme.ts';
+import { SectionTitle } from '../../../components/sectionTitle/SectionTitle.ts';
+import { FlexContainer } from '../../../components/FlexContainer.ts';
+import { Button } from '../../../components/button/Button.ts';
 
 const Refresh = styled.div`
   width: 60px;
@@ -23,13 +23,12 @@ const Refresh = styled.div`
       stroke: ${theme.colors.text.light};
     }
   }
-`
+`;
 const RefreshWrap = styled.div`
   width: 100%;
   display: none;
   justify-content: center;
-
-`
+`;
 
 const DrinkMenu = styled.section`
   display: flex;
@@ -54,9 +53,8 @@ const DrinkMenu = styled.section`
       display: flex;
     }
   }
-`
+`;
 export const IconWrap = styled.div`
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +62,7 @@ export const IconWrap = styled.div`
   height: 30px;
   border-radius: 100px;
   background-color: ${theme.colors.border.light};
-`
+`;
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -83,7 +81,7 @@ const ButtonContainer = styled.div`
       }
     }
   }
-`
+`;
 const CardContainer = styled.div`
   max-width: 310px;
   width: 100%;
@@ -91,7 +89,7 @@ const CardContainer = styled.div`
   height: 100%;
   border-radius: 40px;
   border: 1px solid ${theme.colors.border.light};
-`
+`;
 const ContentContainer = styled.div`
   padding: 20px;
   display: flex;
@@ -99,27 +97,21 @@ const ContentContainer = styled.div`
   justify-content: space-between;
   align-items: start;
   height: 194px;
-
-
-`
-const TextWrap = styled.div`
-
-`
+`;
+const TextWrap = styled.div``;
 
 const Title = styled.h3`
   margin-bottom: 12px;
-`
-const Price = styled.h3`
-
-`
-export const S ={
-    Refresh,
-    RefreshWrap,
-    DrinkMenu,
-    ButtonContainer,
-    CardContainer,
-    ContentContainer,
-    TextWrap,
-    Title,
-    Price
-}
+`;
+const Price = styled.h3``;
+export const S = {
+  Refresh,
+  RefreshWrap,
+  DrinkMenu,
+  ButtonContainer,
+  CardContainer,
+  ContentContainer,
+  TextWrap,
+  Title,
+  Price,
+};

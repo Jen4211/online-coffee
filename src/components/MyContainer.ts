@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {theme} from "../styles/Theme.ts";
+import styled from 'styled-components';
+import { theme } from '../styles/Theme.ts';
 
 export const MyContainer = styled.div`
   max-width: 1440px;
@@ -11,4 +11,4 @@ export const MyContainer = styled.div`
   @media ${theme.media.mobile} {
     padding: 20px 16px 40px;
   }
-`
+`;

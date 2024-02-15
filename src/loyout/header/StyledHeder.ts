@@ -1,11 +1,11 @@
-import styled, {css} from "styled-components";
-import {theme} from "../../styles/Theme.ts";
-import {Button} from "../../components/button/Button.ts";
-import {NavLink} from "react-router-dom";
+import styled, { css } from 'styled-components';
+import { theme } from '../../styles/Theme.ts';
+import { Button } from '../../components/button/Button.ts';
+import { NavLink } from 'react-router-dom';
 
 const Header = styled.header`
   margin-bottom: 20px;
-`
+`;
 const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   position: fixed;
   left: 0;
@@ -22,21 +22,22 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
 
   z-index: 100;
 
-  ul{
+  ul {
     flex-direction: column;
     row-gap: 60px;
     margin-bottom: 100px;
   }
 
-  
-  ${props => props.isOpen && css<{ isOpen: boolean }>`
-    transform: translateY(0);
-  `}
-  
+  ${(props) =>
+    props.isOpen &&
+    css<{ isOpen: boolean }>`
+      transform: translateY(0);
+    `}
+
   @media ${theme.media.mobile} {
-  padding: 20px 16px 60px;
-}
-`
+    padding: 20px 16px 60px;
+  }
+`;
 
 const MobileMenu = styled.div`
   width: 100%;
@@ -58,22 +59,21 @@ const MobileMenu = styled.div`
       background-color: ${theme.colors.text.dark};
     }
   }
-
-`
+`;
 const HeaderPopup = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 60px;
-  
-  ${Button}{
-    span{
+
+  ${Button} {
+    span {
       transform: rotate(45deg);
       position: relative;
-      
-      &::before{
-        content: "";
+
+      &::before {
+        content: '';
         display: inline-block;
         position: absolute;
         width: 16px;
@@ -82,28 +82,23 @@ const HeaderPopup = styled.div`
         transform: rotate(90deg);
         right: 8px;
         left: 0;
-        
       }
     }
-    
-  } 
-`
+  }
+`;
 const MenuList = styled.ul`
-display: flex;
+  display: flex;
   column-gap: 40px;
   align-items: center;
-  
-
-`
-const MenuItem = styled.li`
-
-`
+`;
+const MenuItem = styled.li``;
 const Link = styled(NavLink)`
-position: relative;
+  position: relative;
   color: ${theme.colors.text.dark};
-  &:hover, &.active {
-    &::before{
-      content: "";
+  &:hover,
+  &.active {
+    &::before {
+      content: '';
       width: 100%;
       height: 2px;
       bottom: 0;
@@ -111,13 +106,13 @@ position: relative;
       position: absolute;
     }
   }
-`
+`;
 export const S = {
-    Header,
-    HeaderPopup,
-    MobileMenu,
-    MobileMenuPopup,
-    MenuList,
-    MenuItem,
-    Link
-}
+  Header,
+  HeaderPopup,
+  MobileMenu,
+  MobileMenuPopup,
+  MenuList,
+  MenuItem,
+  Link,
+};

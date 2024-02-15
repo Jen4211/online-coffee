@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import {Button} from "../button/Button.ts";
-import {theme} from "../../styles/Theme.ts";
-import {IconWrap} from "../../loyout/section/drinkMenu/StyledDrinkMenu.ts";
+import styled from 'styled-components';
+import { Button } from '../button/Button.ts';
+import { theme } from '../../styles/Theme.ts';
+import { IconWrap } from '../../loyout/section/drinkMenu/StyledDrinkMenu.ts';
 
 const OptionContainer = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: start;
@@ -31,8 +31,8 @@ const ButtonContainer = styled.div`
         background-color: ${theme.colors.background.body};
       }
     }
-`
+`;
 export const S = {
-    OptionContainer,
-    ButtonContainer
-}
+  OptionContainer,
+  ButtonContainer,
+};

@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import {NavLink} from "react-router-dom";
-import {theme} from "../../styles/Theme.ts";
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { theme } from '../../styles/Theme.ts';
 
 const HeaderLinkDrinkMenu = styled(NavLink)`
   display: flex;
   align-items: center;
-`
+`;
 const WrapLinkDrinkMenu = styled.div`
   color: ${theme.colors.text.dark};
   display: flex;
@@ -14,7 +14,7 @@ const WrapLinkDrinkMenu = styled.div`
 
   &:hover {
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       right: 0;
@@ -23,8 +23,8 @@ const WrapLinkDrinkMenu = styled.div`
       height: 2px;
     }
   }
-`
+`;
 export const S = {
-    HeaderLinkDrinkMenu,
-    WrapLinkDrinkMenu
-}
+  HeaderLinkDrinkMenu,
+  WrapLinkDrinkMenu,
+};
